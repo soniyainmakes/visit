@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="zxx">
+  <head>
+    <title>index</title>
+    <!--meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Nomad Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+      Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script>
+      addEventListener("load", function () {
+      	setTimeout(hideURLbar, 0);
+      }, false);
+      
+      function hideURLbar() {
+      	window.scrollTo(0, 1);
+      }
+    </script>
+    <!--//meta tags ends here-->
+    <!--booststrap-->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="all">
+    <!--//booststrap end-->
+    <!-- font-awesome icons -->
+    <link href="{% static 'css/fontawesome-all.min.css' %}" rel="stylesheet" type="text/css" media="all">
+    <!-- //font-awesome icons -->
+    <!--stylesheets-->
+    <link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' media="all">
+    <!--//stylesheets-->
+    <link href="{% static '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900' %}" rel="{% static 'stylesheet' %}">
+    <link href="{% static '//fonts.googleapis.com/css?family=Raleway:400,500,600' %}" rel="{% static 'stylesheet' %}">
+  </head>
+  <body>
+<!-- //banner -->
+	<section class="w3l-banner">
+		<div class="nav-sec  position-relative">
+					<ul id="menu">
+				  <li>
+					<input id="check01" type="checkbox" name="menu"/>
+					<label class="menulist" for="check01">&nbsp;</label>
+					<ul class="submenu">
+                        <li><a href="{% static 'index.html' %}"  class="active">Home</a></li>
+                        <li><a href="{% static '#about' %}" class="scroll">About Us</a></li>
+						{% if user.is_authenticated %}
+						<b>Hello{{user.username}}</b>
+                        <li><a href="credentials/logout" class="scroll">Logout</a></li>
+						{% else %}
+                        <li><a href="credentials/register" class="scroll">Register</a></li>
+						<li><a href="credentials/login">Login</a></li>
+						{% endif %}
+					</ul>
+				  </li>
+				</ul>
+            </div>
+
+		<div class="container">
+			<div class="baner-text text-center">
+				<span class="fa fa-files-o mb-4 tp_bt"></span>
+				<h1 class="mx-auto">Best Travel in India</h1>
+				<p class="mx-auto mt-4 pt-2">Planning a vacation in India? Read the true Indian travel blogs from the real travelers who have experienced the tourist destinations in the country. Follow us to learn more about the first-hand experience of vacation stay at various destinations in India</p>
+				<a class="btn btn-primary mt-lg-5 mt-3 agile-link-bnr scroll" href="#about" role="button">Learn More</a>
+				<div class="mt-5 btmarw">
+					<a class="scroll" href="{% static '#about' %}" role="button"><span  class="fa fa-long-arrow-down bt-ar"></span></a>
+				</div>
+			</div>
+		</div>
+	</section>
+<!-- banner-bottom1 -->
+  <section class="banner-bottom py-5" id="about">
+		<div class="container py-lg-5">
+			<div class="banner-top row middle-grids">
+				<div class="col-lg-6 advantage-grid-info">
+					<div class="advantage_left">
+						<h3>Plan a Tour?</h3>
+						<p class="mt-4">We do accept travel stories from those who are interested in exploring places and like to share the experience with the world.</p>
+					</div>
+				</div>
+				<div class="col-lg-6 advantage-grid-info1">
+					<div class="advantage_left2 text-center">
+						<img src="{% static 'images/g6.jpg' %}" class="img-fluid" alt="">
+					</div>
+				</div>  
+			</div>
+		</div>
+    </section>
+<!-- //banner-bottom1 -->
+<!-- services -->
+	<section class="slide-wrapper py-5" id="service">
+		<div class="container py-lg-5">
+			<div class="services">
+				<div class="row service_w3top">
+                    <div class="col-lg-6 ser-lt text-center">
+						<ul>
+							<li><span class="fa fa-cog"></span></li>
+							<li><span class="fa fa-code"></span></li>
+							<li><span class="fa fa-copy"></span></li>
+							<li><span class="fa fa-cog"></span></li>
+							<li><span class="fa fa-code"></span></li>
+							<li><span class="fa fa-copy"></span></li>
+						</ul>
+                    </div>
+                    <div class="col-lg-6 ser-rgt">
+                        <h3>About LoveTravel.com
+</h3>
+						<p class="mt-4">Travel Forum</p>
+						<p class="mt-4">Travel Destinations</p>
+						<p class="mt-4">Travel Queries</p>
+						<p class="mt-4">Travel Blogs</p>
+						<p class="mt-4">Travel Tips</p>
+						<p class="mt-4">Travel Articles & Books</p>
+						<p class="mt-4">Travel Tips & Preparation</p>
+						<p class="mt-4">Travel Venture & Ideas</p>
+						<p class="mt-4">Travel Experience</p>
+
+				   </div>
+				</div>
+			</div>
+		</div>
+	</section>
+<!-- //services -->
+<!-- news -->
+	<section class="news py-5" id="news">
+		<div class="container py-lg-5">
+			<h3>Our Destinations</h3>
+					<div class="row news-grids py-lg-5 mt-3 text-center">
+						{% for i in result %}
+						<div class="col-md-4 newsgrid1">
+							<img src="{{i.img.url}}" alt="news image" class="img-fluid">
+							<h4 class="mt-4">{{i.name}}</h4>
+							<p class="mt-4">{{i.desc}}</p>
+							<a class="btn btn-primary mt-lg-4 mt-3 agile-link-bnr1" href="index.html" role="button">More</a>
+						</div>
+						{% endfor %}
+
+					</div>		
+		</div>
+	</section>
+<!-- //news -->	
+<!-- footer -->
+	<section class="foot-top pt-lg-5">	
+		<div class="container py-5">
+			<h2 class="text-white">Share Your Experiances</h2>
+			<p class="mt-4 text-center text-white">lovetravel.com</p>
+			<div class="row inner-conent-w3ls mt-5">
+				<div class="col-md-6 inner-conent-lft">
+					<a href="{% static 'index.html' %}" class="banner-button2 btn">READ MORE </a>
+				</div>
+				<div class="col-md-6 inner-conent-rgt">
+					<a href="{% static 'index.html' %}" class="banner-button btn">LEARN MORE </a>
+				</div>
+			</div>
+		</div>
+		<ul class="social_section_1info text-center py-5">
+			<li><a href="{% static '#' %}"><span class="fa fa-facebook"></span></a></li>
+			<li><a href="{% static '#' %}"><span class="fa fa-twitter"></span></a></li>
+			<li><a href="{% static '#' %}"><span class="fa fa-google-plus"></span></a></li>
+			<li><a href="{% static '#' %}"><span class="fa fa-linkedin"></span></a></li>
+		</ul>
+		
+	</section>
+	<div class="cpy-right text-center py-4 px-2">
+        <p class="text-white">© 2023 Sony. All rights reserved | Design by
+            <a href="{% static 'http://enjoytour.com' %}" class="text-white"> lovetravel</a>
+        </p>
+    </div>
+<!-- //footer -->
+
+  </body>
+</html>
